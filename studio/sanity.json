@@ -1,11 +1,12 @@
 {
   "root": true,
   "api": {
-    "projectId": "",
-    "dataset": ""
+    "projectId": "8trsofmx",
+    "dataset": "production"
   },
   "project": {
-    "name": "Gatsby Demo"
+    "name": "Gatsby Demo",
+    "basePath": "/"
   },
   "plugins": [
     "@sanity/base",
@@ -25,3 +26,4 @@
     }
   ]
 }
+

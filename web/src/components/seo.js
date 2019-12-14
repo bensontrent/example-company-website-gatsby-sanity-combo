@@ -30,6 +30,12 @@ function SEO ({ description, lang, meta, keywords = [], title }) {
             }}
             title={title}
             titleTemplate={title === data.site.title ? '%s' : `%s | ${data.site.title}`}
+            link={[
+              {
+                href: "https://fonts.googleapis.com/css?family=Open+Sans:400|Montserrat:100",
+                rel: "stylesheet"
+              }
+            ]}
             meta={[
               {
                 name: 'description',
@@ -62,7 +68,7 @@ function SEO ({ description, lang, meta, keywords = [], title }) {
               {
                 name: 'twitter:description',
                 content: metaDescription
-              }
+              },
             ]
               .concat(
                 keywords && keywords.length > 0
