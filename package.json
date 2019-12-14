@@ -3,10 +3,13 @@
   "name": "example-company-website-gatsby-sanity-combo",
   "version": "1.0.0",
   "author": "Sanity <hello@sanity.io>",
+  "engines": {
+    "node": "10.x"
+  },
   "scripts": {
     "clean": "lerna clean",
     "deploy": "lerna run deploy",
-    "empty-cache": "rimraf web/.cache",
+    "empty-cache": "lerna run empty-cache",
     "init": "cd studio && sanity init && lerna run graphql-deploy",
     "format": "lerna run format",
     "graphql-deploy": "lerna run graphql-deploy",
@@ -18,7 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "lerna": "^3.9.0",
+    "lerna": "^3.14.1",
     "rimraf": "^2.6.3"
   }
 }
