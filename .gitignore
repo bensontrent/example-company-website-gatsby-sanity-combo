@@ -7,6 +7,5 @@
 # lerna files
 /lerna-debug.log
 
-
-# Webstorm
-/.idea
+# Ignore hidden files as default
+.*
