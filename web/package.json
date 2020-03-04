@@ -1,15 +1,15 @@
 {
   "private": false,
-  "name": "example-company-website-gatsby-sanity-combo-frontend",
+  "name": "frontend",
   "version": "1.0.0",
   "author": "Sanity <hello@sanity.io>",
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "scripts": {
     "build": "gatsby build",
     "deploy": "npm run now-deploy",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --port 8002",
     "empty-cache": "gatsby clean",
     "lint": "eslint .",
     "now-build": "npm run build",
@@ -19,28 +19,34 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
+    "@okta/okta-react": "^2.0.0",
+    "@okta/okta-signin-widget": "^3.8.0",
+    "@reach/router": "^1.3.3",
     "@sanity/block-content-to-react": "^2.0.7",
-    "@sanity/image-url": "^0.140.15",
-    "date-fns": "^1.30.1",
-    "dotenv": "^8.1.0",
-    "gatsby": "^2.18.7",
-    "gatsby-plugin-postcss": "^2.1.16",
-    "gatsby-plugin-react-helmet": "^3.1.16",
-    "gatsby-source-sanity": "^5.0.4",
+    "@sanity/image-url": "^0.140.17",
+    "date-fns": "^2.10.0",
+    "gatsby": "^2.19.27",
+    "gatsby-plugin-postcss": "^2.1.20",
+    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby-source-sanity": "^5.0.6",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1"
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-helmet": "^5.2.1",
+    "react-use-auth": "^0.5.3"
   },
   "devDependencies": {
-    "eslint": "^6.7.2",
+    "@date-fns/upgrade": "^1.0.1",
+    "@date-fns/upgrade-codemod": "^1.0.2",
+    "dotenv-webpack": "^1.7.0",
+    "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-react": "^9.2.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-standard": "^4.0.1",
     "prettier-eslint-cli": "^5.0.0",
     "prop-types": "^15.7.2"

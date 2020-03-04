@@ -42,6 +42,11 @@ export default {
       name: 'country',
       title: 'Country',
       type: 'string'
+    },
+    {
+      name: 'phone',
+      title: 'Phone',
+      type: 'string'
     }
   ]
 }

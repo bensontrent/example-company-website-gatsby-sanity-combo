@@ -1,4 +1,4 @@
-import { format, distanceInWords, differenceInDays } from 'date-fns'
+import { format, formatDistance, differenceInDays, parseISO } from 'date-fns'
 import React from 'react'
 import { Link } from 'gatsby'
 import { buildImageObj } from '../lib/helpers'
@@ -8,6 +8,8 @@ import Container from './container'
 import RoleList from './role-list'
 
 import styles from './project.module.css'
+
+import { legacyParse, convertTokens } from "@date-fns/upgrade/v2";
 
 function Project (props) {
   const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props
@@ -34,12 +36,18 @@ function Project (props) {
           <aside className={styles.metaContent}>
             {publishedAt && (
               <div className={styles.publishedAt}>
-                {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do YYYY')}
+                {differenceInDays(
+                  legacyParse(parseISO(new Date(publishedAt))),
+                  legacyParse(parseISO(new Date()))
+                ) > 3
+                  ? formatDistance(
+                      legacyParse(parseISO(new Date(publishedAt))),
+                      legacyParse(parseISO(new Date()))
+                    )
+                  : format(legacyParse(parseISO(new Date(publishedAt))), 'LLLL dd yyyy')}
               </div>
             )}
-            {members && <RoleList items={members} title='Authors' />}
+            {members && <RoleList items={members} title="Authors" />}
             {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>

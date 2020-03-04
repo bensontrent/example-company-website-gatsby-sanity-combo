@@ -1,4 +1,4 @@
-import { format, distanceInWords, differenceInDays } from 'date-fns'
+import { format, formatDistance, differenceInDays } from 'date-fns'
 import React from 'react'
 import { buildImageObj } from '../lib/helpers'
 import { imageUrlFor } from '../lib/image-url'
@@ -34,11 +34,11 @@ function BlogPost (props) {
             {publishedAt && (
               <div className={styles.publishedAt}>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
-                  ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do YYYY')}
+                  ? formatDistance(new Date(publishedAt), new Date())
+                  : format(new Date(publishedAt), 'MMMM dd yyyy')}
               </div>
             )}
-            {authors && <RoleList items={authors} title='Authors' />}
+            {authors && <RoleList items={authors} title="Authors" />}
             {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>

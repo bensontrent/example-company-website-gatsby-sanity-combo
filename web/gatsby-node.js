@@ -1,5 +1,26 @@
 const { format } = require('date-fns')
 
+if (typeof node !== 'undefined' && node.internal.type === `File`) {
+  fs.readFile(node.absolutePath, undefined, (_err, buf) => {
+    createNodeField({ node, name: `contents`, value: buf.toString() })
+  })
+}
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: 'empty'
+    }
+  })
+}
+
+require('dotenv').config()
+const {
+  legacyParse,
+  convertTokens
+} = require('@date-fns/upgrade/v2');
+
+
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -30,7 +51,7 @@ async function createBlogPostPages (graphql, actions, reporter) {
 
   postEdges.forEach((edge, index) => {
     const { id, slug = {}, publishedAt } = edge.node
-    const dateSegment = format(publishedAt, 'YYYY/MM')
+    const dateSegment = format(legacyParse(publishedAt), convertTokens('yyyy/MM'))
     const path = `/blog/${dateSegment}/${slug.current}/`
 
     reporter.info(`Creating blog post page: ${path}`)

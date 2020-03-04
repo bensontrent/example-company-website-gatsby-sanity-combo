@@ -1,10 +1,12 @@
 {
-  "private": false,
-  "name": "example-company-website-gatsby-sanity-combo",
+  "private": true,
+  "name": "sanity-combo",
   "version": "1.0.0",
-  "author": "Sanity <hello@sanity.io>",
+  "author": {
+    "name": "Benson Trent"
+  },
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "scripts": {
     "clean": "lerna clean",
@@ -13,6 +15,8 @@
     "init": "cd studio && sanity init && lerna run graphql-deploy",
     "format": "lerna run format",
     "graphql-deploy": "lerna run graphql-deploy",
+    "graphql-codegen": "graphql codegen",
+    "kill-all-node-processes": "Taskkill /IM node.exe /F",
     "lint": "lerna run lint",
     "now-deploy": "now && now alias",
     "postinstall": "lerna bootstrap",
@@ -21,7 +25,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "lerna": "^3.14.1",
-    "rimraf": "^2.6.3"
+    "lerna": "^3.20.2",
+    "rimraf": "^3.0.2"
+  },
+  "dependencies": {
+    "@date-fns/upgrade-codemod": "^1.0.2"
   }
 }

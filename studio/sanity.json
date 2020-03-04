@@ -13,7 +13,14 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "dark-mode",
+    "@sanity/dashboard",
+    "dashboard-widget-netlify",
+    "highcharts-editor",
+    "dashboard-widget-document-chart",
+    "media",
+    "@sanity/color-input"
   ],
   "parts": [
     {
@@ -26,4 +33,3 @@
     }
   ]
 }
-
